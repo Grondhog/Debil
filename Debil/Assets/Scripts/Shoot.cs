@@ -31,7 +31,7 @@ public class Shoot : MonoBehaviour {
         target.z = 1;
         print("mouse: " + target);
         print("position: " + transform.position);
-        Vector3 direction = new Vector3(transform.position.x + target.x, transform.position.y - target.y, transform.position.z - target.z);
+        Vector3 direction = new Vector3(transform.position.x + target.x, transform.position.y - target.y, transform.position.z - target.z);//WHY ADD X, BUT SUBTRACT Y. WHYYY
         print("direction: " + direction);
         b.SetDirection(direction);
 
