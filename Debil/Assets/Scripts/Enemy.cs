@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MovingCharacter {
 
     public Transform player;
+    
 
 
 	// Use this for initialization
