@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MovingCharacter {
 
-    public float speed = 5f;
+    
 
 	// Use this for initialization
 	void Start () {
