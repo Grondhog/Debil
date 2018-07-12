@@ -34,7 +34,7 @@ public class Shoot : MonoBehaviour
         {
             Vector3 mousePosition = hit.point;
             //Debug.Log("mousePosition: " + mousePosition);
-            Vector3 fromMouseToPlayer = mousePosition - new Vector3(transform.position.x, 0, transform.position.y);
+            Vector3 fromMouseToPlayer = mousePosition - new Vector3(transform.position.x, transform.position.y, transform.position.z);
             //print("FromMouseToPlayer: " + fromMouseToPlayer);
             Gizmos.DrawSphere(mousePosition, 1f);
             Gizmos.DrawLine(transform.position, fromMouseToPlayer);
@@ -44,14 +44,13 @@ public class Shoot : MonoBehaviour
 
     private void ShootBullet()
     {
-        Bullet b = Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity).GetComponent<Bullet>();
+        Bullet b = Instantiate(bullet, transform.position, Quaternion.identity).GetComponent<Bullet>();
         //Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         //transform.LookAt(mousePosition); //is causing the object to move towards the mouse for some reason
 
         //Debug.Log(rb.velocity.magnitude);
-        if (Input.GetMouseButtonDown(0))
-        {
+        
             //Debug.Log("fromMouseToPlayer: " + fromMouseToPlayer);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -59,7 +58,8 @@ public class Shoot : MonoBehaviour
             {
                 Vector3 mousePosition = hit.point;
                 Debug.Log("mousePosition: " + mousePosition);
-                Vector3 fromMouseToPlayer = mousePosition - new Vector3(transform.position.x, 0, transform.position.y);
+                print("playerPosition: " + transform.position);
+                Vector3 fromMouseToPlayer = mousePosition - new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 print("FromMouseToPlayer: " + fromMouseToPlayer);
 
                 b.SetDirection(fromMouseToPlayer);
@@ -68,6 +68,6 @@ public class Shoot : MonoBehaviour
 
             //rb.AddForce(fromMouseToPlayer * speed);
             //ShootBullet(fromMouseToPlayer);
-        }
+        
     }
 }

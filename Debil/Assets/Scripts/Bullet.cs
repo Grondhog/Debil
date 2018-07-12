@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        
+        print("BulletStartPosition" + transform.position);
     }
 
     public void SetDirection(Vector3 _direction)
