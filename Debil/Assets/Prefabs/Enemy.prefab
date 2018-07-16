@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23651355826213168}
   - component: {fileID: 136795298909439496}
   - component: {fileID: 114192584249798314}
+  - component: {fileID: 195739901410878182}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -99,6 +100,7 @@ MonoBehaviour:
   speed: 5
   maxHealth: 100
   player: {fileID: 0}
+  minDistance: 3
 --- !u!136 &136795298909439496
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -112,3 +114,24 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!195 &195739901410878182
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1847457761481150}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 10
+  avoidancePriority: 50
+  m_AngularSpeed: 300
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
