@@ -18,8 +18,7 @@ public class Shoot : MonoBehaviour
     void Update()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        Vector2 fromMouseToPlayer = new Vector2(transform.position.x, transform.position.y) - mousePosition;
+        
         if (Input.GetMouseButtonDown(0))
         {
             ShootBullet();
@@ -61,7 +60,7 @@ public class Shoot : MonoBehaviour
                 print("playerPosition: " + transform.position);
                 Vector3 fromMouseToPlayer = mousePosition - new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 print("FromMouseToPlayer: " + fromMouseToPlayer);
-
+                fromMouseToPlayer.y = 0;
                 b.SetDirection(fromMouseToPlayer);
             }
 

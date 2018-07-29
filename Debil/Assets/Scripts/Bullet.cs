@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour {
     public float lifeTime = 300f;
     public float timeAlive = 0f;
 
+    public int damage = 5;
+
     // Use this for initialization
     void Start()
     {
@@ -31,6 +33,17 @@ public class Bullet : MonoBehaviour {
         timeAlive++;
         if(timeAlive > lifeTime)
         {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        print("Bullet Collision " + collision.gameObject.tag);
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Enemy e = collision.gameObject.GetComponent<Enemy>();
+            e.TakeDamage(damage);
             Destroy(gameObject);
         }
     }

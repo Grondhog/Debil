@@ -5,7 +5,8 @@ using UnityEngine;
 public class MovingCharacter : MonoBehaviour {
 
     public float speed = 5f;
-    public float maxHealth = 100f;
+    public int maxHealth = 100;
+    protected int curHealth = 100;
 
     // Use this for initialization
     void Start () {

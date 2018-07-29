@@ -56,6 +56,11 @@ public class Enemy : MovingCharacter {
             curMinDistance = minDistance;
     }
 
+    public void TakeDamage(int damage)
+    {
+        curHealth -= damage;
+    }
+
     private void OnDrawGizmos()
     {
         float x = (Mathf.Sin(Mathf.Deg2Rad * angle) * curMinDistance) + player.position.x;
@@ -67,7 +72,18 @@ public class Enemy : MovingCharacter {
     {
         float x = (Mathf.Sin(Mathf.Deg2Rad * angle) * curMinDistance) + player.position.x;
         float y = (Mathf.Cos(Mathf.Deg2Rad * angle) * curMinDistance) + player.position.z;
-        print("Changing destination: " + x + ", " + y);
+        //print("Changing destination: " + x + ", " + y);
         nmAgent.SetDestination(new Vector3(x, 0, y));
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        print("Enemy Collision " + collision.gameObject.tag);
+        if(collision.gameObject.tag == "Bullet")
+        {
+            Bullet b = collision.gameObject.GetComponent<Bullet>();
+            curHealth -= b.damage;
+            Destroy(b);//TODO enemy shouldn't destroy the bullet, bullet should do this
+        }
     }
 }
