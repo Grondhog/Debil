@@ -227,6 +227,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1308196944}
+    - target: {fileID: 114047264505017790, guid: 7ed3dfbbe10cd9e4d845cad555c4fbae,
+        type: 2}
+      propertyPath: maxEnemies
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ed3dfbbe10cd9e4d845cad555c4fbae, type: 2}
   m_IsPrefabParent: 0
